@@ -3,14 +3,14 @@ import { View, Text, StyleSheet, Image} from 'react-native';
 import icons from '../assets/icons';
 
 let commentTypes = {
-    type1: ['kick off', 'half time', 'full time', 'goal'],
-    type2: ['post_match summary', 'yellow card', 'substitution', 'highlight', 'assist', 'stats'],
-    type3: ['comment', 'team news']    
+    dark: ['kick off', 'half time', 'full time', 'goal'],
+    grey: ['post_match summary', 'yellow card', 'substitution', 'highlight', 'assist', 'stats'],
+    light: ['comment', 'team news']    
 }
 
 getStyle = (type) => {
-    if(commentTypes.type1.includes(type)) return styles.dark;
-    if(commentTypes.type2.includes(type)) return styles.grey;
+    if(commentTypes.dark.includes(type)) return styles.dark;
+    if(commentTypes.grey.includes(type)) return styles.grey;
     else return styles.light;
 }
 
@@ -24,7 +24,7 @@ const MatchComment = props => {
                 />
             </View>
             <View style={[getStyle(props.type), styles.event]}>
-                <Text style={commentTypes.type1.includes(props.type) ? {color : 'white'} : {}}>{props.comment}</Text>
+                <Text style={commentTypes.dark.includes(props.type) ? {color : 'white'} : {}}>{props.comment}</Text>
             </View>
         </View>
     )
